@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Culture</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Css/qr_toolpage.css">
+    <script type="text/javascript" src="JS/jquery.js"></script>
+<script type="text/javascript" src="JS/qrcode.js"></script>
+</head>
+<body id="body">
+    <h1 style="display: inline-block;">Grow Culture</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <!-- <button class="button button1">Green</button>
+    <button class="button button2">Blue</button> -->
+        
+    <ul style="display: inline-block;">
+        <li><a href="#home">Home</a></li>&nbsp;&nbsp;
+        <li><a href="#news">News</a></li>&nbsp;&nbsp;
+        <li><a href="#contact">Contact</a></li>&nbsp;&nbsp;
+        <li><a href="#about">About</a></li>&nbsp;&nbsp;
+    </ul>
+    <br><br><br>
+    <div id="div1">
+        <b>Welcome to  Grow Culture</b><br>
+        <a href="index.html">
+            <i class="fa fa-home" aria-hidden="true"></i><button class="button button1">Create QR Code</button>
+        </a>
+        <a href="index1.html">
+            <i class="fa fa-tachometer" aria-hidden="true"></i><button class="button button2">Scan QR Code</button>
+        </a>
+    </div>
+    <div id="div2">
+        <img src="ph1.jfif" alt="" width="50%" height="50%">
+    </div>
+    <br>
+    
+    
+    
+      
+        <div class="container-fluid">
+      
+          <!-- Main component for a primary marketing message or call to action -->
+          
+              
+            <h4 style= "color: white;">Enter the text or link to generate the QR Code :</h4>
+
+            <form onsubmit="encrypt();return false;">
+                <input type="text" id="qr" name="qr_text" placeholder="Input your text here">
+            </form>
+            <p id="to_dec"></p>
+            <div id="qrResult" style="height: 100px;width: 100px;margin: 15px;padding: 15px;">
+                
+            </div>
+            
+            <script type="text/javascript" src="JS/qr_t.js">
+            </script>
+
+
+            <a href="" download="Qr_Scanned" id="scanned">
+              <button class="button" type="submit">Download</button>
+            </a>
+
+          </div>
+        </div>
+    
+</body>
+</html>
