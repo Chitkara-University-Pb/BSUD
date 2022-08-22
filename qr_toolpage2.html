@@ -12,6 +12,7 @@
     <title>QR Scan page</title>
     <link rel="stylesheet" href="Css/qr_toolpage.css">
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/dec.js"></script>
 <script type="text/javascript" src="js/qrcode.js"></script>
 
 
@@ -68,8 +69,9 @@
 </script>
 
 <br><br>
-<p>Qr Content: <br><span id="content"></span></p>
-
+<p style="display: none;">Qr Content: <br><span id="content"></span></p>
+<button onclick="decrypt()"> Decrypt</button>
+<span id="disp"></span>
 
 
 <!--To Read QR Code-->

@@ -54,9 +54,10 @@
               
             <h4 style="background-color: black;color: white;">Enter the text/link to generate the QR Code :</h4>
 
-            <form onsubmit="generate();return false;">
+            <form onsubmit="encrypt();return false;">
                 <input type="text" id="qr" name="qr_text" placeholder="Input your text here">
             </form>
+            <p id="to_dec"></p>
             
             <div id="qrResult" style="height: 100px;width: 100px;margin: 15px;padding: 15px;">
                 
