@@ -54,3 +54,10 @@ a{
     display: inline-block;
 }
 
+#final{
+    font-size: x-large;
+}
+
+#disp{
+    display: none;
+}

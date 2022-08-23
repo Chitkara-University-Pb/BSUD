@@ -11,6 +11,19 @@
 <script type="text/javascript" src="JS/qrcode.js"></script>
 </head>
 <body id="body">
+    <script>
+var BigData;
+function getData(){
+fetch('http://localhost:3000/user/').then((response)=>{
+
+    return response.text();
+}).then((data)=>{
+    BigData=data;
+    console.log(data);
+})
+}
+getData();
+    </script>
     <h1 style="display: inline-block;">Grow Culture</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <!-- <button class="button button1">Green</button>
@@ -39,7 +52,6 @@
     
     
     
-      
         <div class="container-fluid">
       
           <!-- Main component for a primary marketing message or call to action -->

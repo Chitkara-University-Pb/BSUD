@@ -10,7 +10,7 @@
     <script type="text/javascript" src="JS/jquery.js"></script>
 <script type="text/javascript" src="JS/qrcode.js"></script>
     <!-- <script type="text/javascript" src="qr_t.js"></script> -->
-    <script type="text/javascript" src="JS/dec.js"></script>
+    <!-- <script type="text/javascript" src="JS/dec.js"></script> -->
 </head>
 <body id="body">
     <h1 style="display: inline-block;">Grow Culture</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,7 +30,7 @@
         <a href="index.html">
             <i class="fa fa-home" aria-hidden="true"></i><button class="button button1">Create QR Code</button>
         </a>
-        <a href="qr_toolpage2.html">
+        <a href="index1.html">
             <i class="fa fa-tachometer" aria-hidden="true"></i><button class="button button2">Scan QR Code</button>
         </a>
     </div>
@@ -64,13 +64,69 @@
       URL.revokeObjectURL(output.src) // free memory
     }
   };
+
+  var decoded;
+  function decrypt() {
+    var e = document.getElementById("content").innerHTML;
+    var decodeString = window.atob(e);
+    console.log(decodeString)
+    document.getElementById("disp").innerHTML = decodeString;
+    decoded = decodeString
+    // console.log(document.getElementById("content").innerHTML)
+
+}
+
+  getData()
+var bigData;
+let count = 0;
+function getData(){
+fetch('http://localhost:3000/user/').then((response)=>{
+
+    return response.text();
+}).then((user)=>{
+     bigData = JSON.parse(user);
+     // console.log(bigData[0].City);
+    //console.log(data[0]);
+
+    var items = Array('Chandigarh', 'Delhi', 'Amritsar', 'Ludhiana', 'Gurgaon', 'Rajpura', 'Patiala', 'Mohali')
+    var item = items[Math.floor(Math.random()*items.length)];
+     for (var i=0;i<9;i++){
+      if(bigData[i].farmerID == decoded[0] && count == 0 ){
+        
+       console.log(bigData[i].farmerName);
+       document.getElementById("final").innerHTML= 'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + new Date().toTimeString().split(" ")[0];
+       count ++;
+       warehouseTime = new Date().toTimeString().split(" ")[0];
+
+      }else if (bigData[i].farmerID == decoded[0] && count == 1){
+       document.getElementById("final").innerHTML= 'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + warehouseTime +'<br>Location of Distributor : ' + item;
+       count ++;
+        
+      }else if(bigData[i].farmerID == decoded[0] && count == 2){
+       deliveryTime = new Date().toTimeString().split(" ")[0];
+       document.getElementById("final").innerHTML= 'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + warehouseTime +'<br>Location of Distributor : ' + item + '<br>Delivery Time : ' + deliveryTime;
+       count ++;
+      }
+}
+})
+}
+
+//  let count = 0;
+//  var  string = document.getElementById("disp").value;
+//  while (count<3){
+//     for (var i=0;i<20;i++){
+//       console.log(bigData[i].farmerName);
+//     }
+    
+//  }
 </script>
 
 <br><br>
 <p style="display: none;">Qr Content: <br><span id="content"></span></p>
-<button onclick="decrypt()">Decrypt</button>
+<button onclick="decrypt(),getData()">Decrypt</button>
 <br>
-<span id="disp"></span>
+<span id="disp"></span><br><br>
+<span id="final"></span>
 
 
 
