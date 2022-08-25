@@ -13,7 +13,7 @@
     <!-- <script type="text/javascript" src="JS/dec.js"></script> -->
 </head>
 <body id="body">
-    <h1 style="display: inline-block;">Grow Culture</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;<h1 style="display: inline-block;">Grow Culture</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <!-- <button class="button button1">Green</button>
     <button class="button button2">Blue</button> -->
@@ -26,7 +26,7 @@
     </ul>
     <br><br><br>
     <div id="div1">
-        <b>Welcome to  Grow Culture</b><br>
+        <b>Welcome to  Grow Culture.</b><br><br><br>
         <a href="index.html">
             <i class="fa fa-home" aria-hidden="true"></i><button class="button button1">Create QR Code</button>
         </a>
@@ -94,17 +94,17 @@ fetch('http://localhost:3000/user/').then((response)=>{
       if(bigData[i].farmerID == decoded[0] && count == 0 ){
         
        console.log(bigData[i].farmerName);
-       document.getElementById("final").innerHTML= 'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + new Date().toTimeString().split(" ")[0];
+       document.getElementById("final1").innerHTML= '<b><u>Point A : </u></b><br>' + 'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + new Date().toTimeString().split(" ")[0];
        count ++;
        warehouseTime = new Date().toTimeString().split(" ")[0];
 
       }else if (bigData[i].farmerID == decoded[0] && count == 1){
-       document.getElementById("final").innerHTML= 'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + warehouseTime +'<br>Location of Distributor : ' + item;
+       document.getElementById("final2").innerHTML='<b><u>Point B : </u></b><br>' +  'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + warehouseTime +'<br>Location of Distributor : ' + item;
        count ++;
         
       }else if(bigData[i].farmerID == decoded[0] && count == 2){
        deliveryTime = new Date().toTimeString().split(" ")[0];
-       document.getElementById("final").innerHTML= 'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + warehouseTime +'<br>Location of Distributor : ' + item + '<br>Delivery Time : ' + deliveryTime;
+       document.getElementById("final3").innerHTML='<b><u>Point C : </u></b><br>' +  'Farmer Id : '+ bigData[i].farmerID + '<br>'+'Farmer Name : '+ bigData[i].farmerName + '<br>City : ' + bigData[i].city + '<br>State : ' + bigData[i].state + '<br>WhareHouse No. : ' + bigData[i].warehouse + '<br>Time : ' + warehouseTime +'<br>Location of Distributor : ' + item + '<br>Delivery Time : ' + deliveryTime;
        count ++;
       }
 }
@@ -126,7 +126,11 @@ fetch('http://localhost:3000/user/').then((response)=>{
 <button onclick="decrypt(),getData()">Decrypt</button>
 <br>
 <span id="disp"></span><br><br>
-<span id="final"></span>
+<div style="display: flex;" id="final">
+  <span id="final1" class="final"></span>
+  <span id="final2" class="final"></span>
+  <span id="final3" class="final"></span>
+</div>
 
 
 
